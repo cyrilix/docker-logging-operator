@@ -22,7 +22,7 @@ RUN GOOS=$(echo $TARGETPLATFORM | cut -f1 -d/) && \
     GOARCH=$(echo $TARGETPLATFORM | cut -f2 -d/) && \
     GOARM=$(echo $TARGETPLATFORM | cut -f3 -d/ | sed "s/v//" ) && \
     GOARCH=${GOARCH} GOARM=${GOARM} go mod vendor && \
-    CGO_ENABLED=0 GOOS=${GOOS} GOARCH=${GOARCH} GOARM=${GOARM} CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o manager main.go
+    CGO_ENABLED=0 GOOS=${GOOS} GOARCH=${GOARCH} GOARM=${GOARM} GO111MODULE=on go build -a -installsuffix cgo -o manager main.go
 
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
