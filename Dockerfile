@@ -1,7 +1,7 @@
 # Build the manager binary
 FROM --platform=$BUILDPLATFORM golang:1.16 as builder-src
 
-ARG LOGGING_OPERATOR_VERSION=3.9.3
+ARG LOGGING_OPERATOR_VERSION=3.9.4
 
 WORKDIR /workspace
 RUN git clone https://github.com/banzaicloud/logging-operator
